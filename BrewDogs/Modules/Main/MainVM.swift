@@ -33,7 +33,7 @@ class MainVM {
     func fetchBrews(for food: String) {
         self.originalBrews.removeAll()
         
-        self.networkFetcher?.fetchBrews { [ weak self ] (brews, error) in
+        self.networkFetcher?.fetchBrews(for: food) { [ weak self ] (brews, error) in
             guard let wSelf = self else { return }
             
             if let error = error {

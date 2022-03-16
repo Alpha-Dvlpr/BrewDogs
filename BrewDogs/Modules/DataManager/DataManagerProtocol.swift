@@ -8,5 +8,5 @@
 import Foundation
 
 protocol DataManagerProtocol: AnyObject {
-    func fetchBrews(completion: @escaping ((_ brews: [Brew]?, _ error: String?) -> Void))
+    func fetchBrews(for food: String, completion: @escaping ((_ brews: [Brew]?, _ error: String?) -> Void))
 }

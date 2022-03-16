@@ -15,23 +15,23 @@ struct Brew: Decodable {
     var description: String
     var image_url: String
     var abv: Double
-    var ibu: Double
-    var target_fb: Double
+    var ibu: Double?
+    var target_fg: Double
     var target_og: Double
-    var ebc: Double
-    var srm: Double
-    var ph: Double
+    var ebc: Double?
+    var srm: Double?
+    var ph: Double?
     var attenuation_level: Double
     var volume: BrewVolume
     var boil_volume: BrewVolume
     var method: BrewMethod
     var ingredients: BrewIngredients
     var food_pairing: [String]
-    var brewer_tips: String
+    var brewers_tips: String
     var contributed_by: String
     
     enum CodingKeys: String, CodingKey {
-        case id, name, tagline, first_brewed, description, image_url, abv, ibu, target_fb, target_og, ebc, srm, ph, attenuation_level
-        case volume, boil_volume, method, ingredients, food_pairing, brewer_tips, contributed_by
+        case id, name, tagline, first_brewed, description, image_url, abv, ibu, target_fg, target_og, ebc, srm, ph, attenuation_level
+        case volume, boil_volume, method, ingredients, food_pairing, brewers_tips, contributed_by
     }
 }

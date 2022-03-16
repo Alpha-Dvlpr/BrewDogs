@@ -18,7 +18,7 @@ class MainVCViews {
     
     var errorLabel: UILabel = {
         let label = UILabel()
-        label.numberOfLines = 2
+        label.numberOfLines = 0
         label.textColor = .systemRed
         label.textAlignment = .left
         label.font = .boldSystemFont(ofSize: 16)
@@ -47,8 +47,8 @@ class MainVCViews {
         
         self.table
             .alignParentBottomSafeArea()
-            .alignParentLeft()
-            .alignParentRight()
+            .alignParentLeft(constant: 8)
+            .alignParentRight(constant: 8)
             .align(belowTo: self.errorLabel, constant: 8)
     }
     
@@ -147,19 +147,42 @@ extension MainVC: UITextFieldDelegate {
 
 extension MainVC: UITableViewDelegate, UITableViewDataSource {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return self.viewModel?.sortedBrews.count ?? 0
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let brew = self.viewModel?.sortedBrews[indexPath.row]
-        let cell = UITableViewCell()
-        cell.textLabel?.text = brew?.name ?? "-"
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 8
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let view = UIView()
+        view.backgroundColor = .clear
         
-        return cell
+        return view
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let brew = self.viewModel?.sortedBrews[indexPath.section]
+        else {
+            let cell = UITableViewCell()
+            cell.textLabel?.text = "Template cell"
+            
+            return cell
+        }
+        
+        return BrewCell.create(with: brew)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return BrewCell.cellHeight
     }
 }

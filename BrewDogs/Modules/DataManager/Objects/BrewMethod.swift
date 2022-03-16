@@ -9,7 +9,7 @@ import Foundation
 
 struct Mash: Decodable {
     var temp: BrewVolume
-    var duration: Int
+    var duration: Int?
     
     enum CodingKeys: String, CodingKey {
         case temp, duration

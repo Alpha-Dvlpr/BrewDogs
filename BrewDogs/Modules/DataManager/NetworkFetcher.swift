@@ -8,8 +8,8 @@
 import Foundation
 
 class NetworkFetcher: DataManagerProtocol {
-    func fetchBrews(completion: @escaping (([Brew]?, String?) -> Void)) {
-        guard let url = URL(string: "https://api.punkapi.com/v2/")
+    func fetchBrews(for food: String, completion: @escaping (([Brew]?, String?) -> Void)) {
+        guard let url = URL(string: "https://api.punkapi.com/v2/beers?food=\(food)")
         else {
             completion(nil, "La URL solicitada no existe")
             return
@@ -21,7 +21,7 @@ class NetworkFetcher: DataManagerProtocol {
                 completion(brews, nil)
                 
             case .failure(let error):
-                completion(nil, error.localizedDescription)
+                completion(nil, "\(error)")
             }
         }
     }
