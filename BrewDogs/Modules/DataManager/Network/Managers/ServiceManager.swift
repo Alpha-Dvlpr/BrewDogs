@@ -32,10 +32,11 @@ class ServiceManager {
             let decodedData = try? decoder.decode(T.self, from: Data(stringJson!.utf8))
             let decodedResponse = ResponseModel.init(with: decodedData, and: request)
             
-            guard decodedResponse.isSuccess, let responseData = decodedResponse.data
-            else { logError(with: ErrorKey.general.rawValue); return }
-            
-            completion(.success(responseData.unsafelyUnwrapped))
+            if let newData = decodedResponse.data, newData != nil, decodedResponse.isSuccess {
+                completion(.success(newData.unsafelyUnwrapped))
+            } else {
+                logError(with: ErrorKey.general.rawValue)
+            }
         }.resume()
     }
 }

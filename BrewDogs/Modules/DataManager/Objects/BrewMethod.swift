@@ -25,7 +25,7 @@ struct Fermentation: Decodable, Encodable {
 }
 
 struct BrewMethod: Decodable, Encodable {
-    var mash_temp: [Mash]
+    var mash_temp: [Mash]?
     var fermentation: Fermentation
     var twist: String?
     
