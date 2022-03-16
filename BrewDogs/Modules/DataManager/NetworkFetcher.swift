@@ -7,39 +7,43 @@
 
 import Foundation
 
-class NetworkFetcher: DataManagerProtocol {
-    func fetchBrews(for food: String, completion: @escaping (([Brew]?, String?) -> Void)) {
-        guard let url = URL(string: "https://api.punkapi.com/v2/beers?food=\(food)")
-        else {
-            completion(nil, "La URL solicitada no existe")
-            return
-        }
-        
-        URLSession.shared.fetchData(at: url) { result in
-            switch result {
-            case .success(let brews):
-                completion(brews, nil)
-                
-            case .failure(let error):
-                completion(nil, "\(error)")
-            }
-        }
-    }
-}
-
-extension URLSession {
-    func fetchData(at url: URL, completion: @escaping ((Result<[Brew], Error>) -> Void)) {
-        self.dataTask(with: url) { (data, response, error) in
-            if let error = error { completion(.failure(error)) }
-            
-            if let data = data {
-                do {
-                    let brews = try JSONDecoder().decode([Brew].self, from: data)
-                    completion(.success(brews))
-                } catch let decodeError {
-                    completion(.failure(decodeError))
-                }
-            }
-        }.resume()
-    }
-}
+//class NetworkFetcher: DataManagerProtocol {
+//    func fetchBrews(for food: String, completion: @escaping (([Brew]?, String?) -> Void)) {
+//        guard let url = URL(string: "https://api.punkapi.com/v2/beers?food=\(food)")
+//        else {
+//            completion(nil, "La URL solicitada no existe")
+//            return
+//        }
+//        
+//        URLSession.shared.fetchData(at: url) { result in
+//            switch result {
+//            case .success(let brews):
+//                completion(brews, nil)
+//                
+//            case .failure(let error):
+//                completion(nil, "\(error)")
+//            }
+//        }
+//    }
+//    
+//    func fetchImage(for brewURL: String, completion: @escaping ((Data?, URLResponse?, Error?) -> Void)) {
+//        
+//    }
+//}
+//
+//extension URLSession {
+//    func fetchData(at url: URL, completion: @escaping ((Result<[Brew], Error>) -> Void)) {
+//        self.dataTask(with: url) { (data, response, error) in
+//            if let error = error { completion(.failure(error)) }
+//            
+//            if let data = data {
+//                do {
+//                    let brews = try JSONDecoder().decode([Brew].self, from: data)
+//                    completion(.success(brews))
+//                } catch let decodeError {
+//                    completion(.failure(decodeError))
+//                }
+//            }
+//        }.resume()
+//    }
+//}

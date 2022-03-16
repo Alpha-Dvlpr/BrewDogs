@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Ingredient: Decodable {
+struct Ingredient: Decodable, Encodable {
     var name: String
     var amount: BrewVolume
     var add: String?
@@ -18,7 +18,7 @@ struct Ingredient: Decodable {
     }
 }
 
-struct BrewIngredients: Decodable {
+struct BrewIngredients: Decodable, Encodable {
     var malt: [Ingredient]
     var hops: [Ingredient]
     var yeast: String

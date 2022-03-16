@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct BrewVolume: Decodable {
+struct BrewVolume: Decodable, Encodable {
     var value: Double
     var unit: String
     

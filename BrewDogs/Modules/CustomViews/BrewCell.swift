@@ -100,8 +100,8 @@ class BrewCellViews {
         self.taglineLabel.text = brew.tagline
         self.descriptionLabel.text = brew.description
         self.image.image = UIImage.init(systemName: "person.fill")
-        self.abvLabel.text = "\(brew.abv)"
-        self.abvLabel.layer.backgroundColor = self.getColor(for: brew.abv).cgColor
+        self.abvLabel.text = "\(brew.abv ?? 0)"
+        self.abvLabel.layer.backgroundColor = self.getColor(for: brew.abv ?? 0).cgColor
     }
     
     private func getColor(for abv: Double) -> UIColor {

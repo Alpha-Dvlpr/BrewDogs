@@ -7,6 +7,7 @@
 
 import Foundation
 
-protocol DataManagerProtocol: AnyObject {
-    func fetchBrews(for food: String, completion: @escaping ((_ brews: [Brew]?, _ error: String?) -> Void))
-}
+//protocol DataManagerProtocol: AnyObject {
+//    func fetchBrews(for food: String, completion: @escaping ((_ brews: [Brew]?, _ error: String?) -> Void))
+//    func fetchImage(for brewURL: String, completion: @escaping ((Data?, URLResponse?, Error?) -> Void))
+//}
