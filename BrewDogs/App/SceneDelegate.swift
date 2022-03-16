@@ -14,7 +14,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         if let windowScene = scene as? UIWindowScene {
             let win = UIWindow(windowScene: windowScene)
-            win.rootViewController = MainVC()
+            win.rootViewController = MainVC.create()
             win.backgroundColor = .white
             
             self.window = win

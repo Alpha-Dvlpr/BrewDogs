@@ -14,6 +14,7 @@
 		E441BB9927E2238D00C54AEE /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E441BB9827E2238D00C54AEE /* MainVC.swift */; };
 		E441BB9C27E223AE00C54AEE /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E441BB9B27E223AE00C54AEE /* BaseVC.swift */; };
 		E441BB9E27E2274700C54AEE /* ViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E441BB9D27E2274700C54AEE /* ViewBuilder.swift */; };
+		E441BBA027E232FB00C54AEE /* MainVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E441BB9F27E232FB00C54AEE /* MainVM.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		E441BB9827E2238D00C54AEE /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		E441BB9B27E223AE00C54AEE /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
 		E441BB9D27E2274700C54AEE /* ViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewBuilder.swift; sourceTree = "<group>"; };
+		E441BB9F27E232FB00C54AEE /* MainVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				E441BB9827E2238D00C54AEE /* MainVC.swift */,
+				E441BB9F27E232FB00C54AEE /* MainVM.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -181,6 +184,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E441BB8127E2209700C54AEE /* AppDelegate.swift in Sources */,
+				E441BBA027E232FB00C54AEE /* MainVM.swift in Sources */,
 				E441BB9927E2238D00C54AEE /* MainVC.swift in Sources */,
 				E441BB8327E2209700C54AEE /* SceneDelegate.swift in Sources */,
 				E441BB9E27E2274700C54AEE /* ViewBuilder.swift in Sources */,
