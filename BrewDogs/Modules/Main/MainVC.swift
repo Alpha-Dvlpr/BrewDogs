@@ -105,11 +105,18 @@ class MainVC: BaseVC {
         self.views?.setField(delegate: self) { self.view.endEditing(true) }
         self.views?.setTable(delegate: self, dataSource: self)
         
-        self.viewModel?.observer = { [ weak self ] empty in
-            guard let wSelf = self else { return }
-            
-            if empty { wSelf.views?.setError(string: "No se han encontrado cervezas para la comida introducida") }
-            wSelf.views?.table.reloadData()
+        self.viewModel?.observer = { [ weak self ] (empty, error) in
+            DispatchQueue.main.async {
+                guard let wSelf = self else { return }
+                wSelf.stopLoading()
+                
+                if let error = error {
+                    wSelf.views?.setError(string: error)
+                } else {
+                    if empty { wSelf.views?.setError(string: "No se han encontrado cervezas para la comida introducida") }
+                    wSelf.views?.table.reloadData()
+                }
+            }
         }
     }
 }
@@ -123,8 +130,8 @@ extension MainVC: UITextFieldDelegate {
             return false
         }
         
+        self.startLoading()
         self.views?.setError(string: nil)
-        
         self.viewModel?.fetchBrews(for: text)
         self.view.endEditing(true)
         
@@ -133,12 +140,6 @@ extension MainVC: UITextFieldDelegate {
     
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
         self.viewModel?.clearSearch()
-        
-        return true
-    }
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
         
         return true
     }
@@ -153,7 +154,7 @@ extension MainVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let brew = self.viewModel?.sortedBrews[indexPath.row]
         let cell = UITableViewCell()
-        cell.textLabel?.text = brew ?? "-"
+        cell.textLabel?.text = brew?.name ?? "-"
         
         return cell
     }

@@ -9,17 +9,42 @@ import Foundation
 
 class MainVM {
     
-    var observer: ((_ empty: Bool) -> Void)?
-    private var originalBrews = [String]()
-    var sortedBrews: [String] { return self.originalBrews.sorted(by: { $0 > $1 }) }
+    var observer: ((_ empty: Bool, _ error: String?) -> Void)?
+    var sortedBrews: [Brew] {
+        switch self.sortingOrder {
+        case .ascending:
+            return self.originalBrews.sorted(by: { $0.abv < $1.abv })
+            
+        case .descending:
+            return self.originalBrews.sorted(by: { $0.abv > $1.abv })
+            
+        case .none:
+            return self.originalBrews
+        }
+    }
+    private var sortingOrder: SortingOrder = .ascending
+    private var originalBrews = [Brew]()
+    private var networkFetcher: DataManagerProtocol?
     
-    init() { }
+    init() {
+        self.networkFetcher = NetworkFetcher()
+    }
     
     func fetchBrews(for food: String) {
-        let rand = Int.random(in: 1...10)
-        self.originalBrews = ["IPA", "Desperados", "Voll Damm", "Rand\(rand)"]
+        self.originalBrews.removeAll()
         
-        self.finish()
+        self.networkFetcher?.fetchBrews { [ weak self ] (brews, error) in
+            guard let wSelf = self else { return }
+            
+            if let error = error {
+                wSelf.finish(error: error)
+            } else if let brews = brews {
+                wSelf.originalBrews = brews
+                wSelf.finish()
+            } else {
+                wSelf.finish()
+            }
+        }
     }
     
     func clearSearch() {
@@ -27,5 +52,5 @@ class MainVM {
         self.finish(clear: true)
     }
     
-    private func finish(clear: Bool = false) { self.observer?(clear ? false : self.sortedBrews.isEmpty) }
+    private func finish(clear: Bool = false, error: String? = nil) { self.observer?(clear ? false : self.sortedBrews.isEmpty, error) }
 }

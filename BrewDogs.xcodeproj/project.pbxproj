@@ -15,6 +15,13 @@
 		E441BB9C27E223AE00C54AEE /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E441BB9B27E223AE00C54AEE /* BaseVC.swift */; };
 		E441BB9E27E2274700C54AEE /* ViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E441BB9D27E2274700C54AEE /* ViewBuilder.swift */; };
 		E441BBA027E232FB00C54AEE /* MainVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E441BB9F27E232FB00C54AEE /* MainVM.swift */; };
+		E441BBA427E239BB00C54AEE /* DataManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E441BBA327E239BB00C54AEE /* DataManagerProtocol.swift */; };
+		E441BBA627E239F500C54AEE /* NetworkFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E441BBA527E239F500C54AEE /* NetworkFetcher.swift */; };
+		E441BBA927E23EB000C54AEE /* Brew.swift in Sources */ = {isa = PBXBuildFile; fileRef = E441BBA827E23EB000C54AEE /* Brew.swift */; };
+		E441BBAB27E23FC200C54AEE /* BrewIngredients.swift in Sources */ = {isa = PBXBuildFile; fileRef = E441BBAA27E23FC200C54AEE /* BrewIngredients.swift */; };
+		E441BBAD27E2407300C54AEE /* BrewVolume.swift in Sources */ = {isa = PBXBuildFile; fileRef = E441BBAC27E2407300C54AEE /* BrewVolume.swift */; };
+		E441BBAF27E2409700C54AEE /* BrewMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = E441BBAE27E2409700C54AEE /* BrewMethod.swift */; };
+		E441BBB127E2433400C54AEE /* SortingOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E441BBB027E2433400C54AEE /* SortingOrder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +35,13 @@
 		E441BB9B27E223AE00C54AEE /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
 		E441BB9D27E2274700C54AEE /* ViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewBuilder.swift; sourceTree = "<group>"; };
 		E441BB9F27E232FB00C54AEE /* MainVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVM.swift; sourceTree = "<group>"; };
+		E441BBA327E239BB00C54AEE /* DataManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManagerProtocol.swift; sourceTree = "<group>"; };
+		E441BBA527E239F500C54AEE /* NetworkFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkFetcher.swift; sourceTree = "<group>"; };
+		E441BBA827E23EB000C54AEE /* Brew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brew.swift; sourceTree = "<group>"; };
+		E441BBAA27E23FC200C54AEE /* BrewIngredients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewIngredients.swift; sourceTree = "<group>"; };
+		E441BBAC27E2407300C54AEE /* BrewVolume.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewVolume.swift; sourceTree = "<group>"; };
+		E441BBAE27E2409700C54AEE /* BrewMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewMethod.swift; sourceTree = "<group>"; };
+		E441BBB027E2433400C54AEE /* SortingOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortingOrder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +103,7 @@
 		E441BB9627E2225900C54AEE /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				E441BBA127E2398300C54AEE /* DataManager */,
 				E441BB9A27E223A000C54AEE /* Helpers */,
 				E441BB9727E2238100C54AEE /* Main */,
 			);
@@ -109,8 +124,30 @@
 			children = (
 				E441BB9B27E223AE00C54AEE /* BaseVC.swift */,
 				E441BB9D27E2274700C54AEE /* ViewBuilder.swift */,
+				E441BBB027E2433400C54AEE /* SortingOrder.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		E441BBA127E2398300C54AEE /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				E441BBA727E23EA700C54AEE /* Objects */,
+				E441BBA327E239BB00C54AEE /* DataManagerProtocol.swift */,
+				E441BBA527E239F500C54AEE /* NetworkFetcher.swift */,
+			);
+			path = DataManager;
+			sourceTree = "<group>";
+		};
+		E441BBA727E23EA700C54AEE /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				E441BBA827E23EB000C54AEE /* Brew.swift */,
+				E441BBAA27E23FC200C54AEE /* BrewIngredients.swift */,
+				E441BBAC27E2407300C54AEE /* BrewVolume.swift */,
+				E441BBAE27E2409700C54AEE /* BrewMethod.swift */,
+			);
+			path = Objects;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -184,8 +221,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				E441BB8127E2209700C54AEE /* AppDelegate.swift in Sources */,
+				E441BBAD27E2407300C54AEE /* BrewVolume.swift in Sources */,
+				E441BBA427E239BB00C54AEE /* DataManagerProtocol.swift in Sources */,
+				E441BBA927E23EB000C54AEE /* Brew.swift in Sources */,
+				E441BBB127E2433400C54AEE /* SortingOrder.swift in Sources */,
+				E441BBA627E239F500C54AEE /* NetworkFetcher.swift in Sources */,
 				E441BBA027E232FB00C54AEE /* MainVM.swift in Sources */,
 				E441BB9927E2238D00C54AEE /* MainVC.swift in Sources */,
+				E441BBAB27E23FC200C54AEE /* BrewIngredients.swift in Sources */,
+				E441BBAF27E2409700C54AEE /* BrewMethod.swift in Sources */,
 				E441BB8327E2209700C54AEE /* SceneDelegate.swift in Sources */,
 				E441BB9E27E2274700C54AEE /* ViewBuilder.swift in Sources */,
 				E441BB9C27E223AE00C54AEE /* BaseVC.swift in Sources */,
