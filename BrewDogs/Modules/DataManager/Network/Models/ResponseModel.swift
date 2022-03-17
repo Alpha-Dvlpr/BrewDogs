@@ -35,13 +35,6 @@ struct ResponseModel<T: Codable>: Codable {
         self.data = try? keyedContainer.decode(T.self, forKey: CodingKeys.data)
     }
     
-    init(with data: T, and request: RequestModel) {
-        self.data = data
-        self.request = request
-        self.isSuccess = true
-        self.message = ""
-    }
-    
     enum CodingKeys: String, CodingKey {
         case isSuccess
         case message

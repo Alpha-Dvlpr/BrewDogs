@@ -8,7 +8,7 @@
 import Foundation
 
 class Services {
-    class func getBrews(for food: String, completion: @escaping ((Swift.Result<[Brew], ErrorModel>) -> Void)) {
+    class func getBrews(for food: String, completion: @escaping ((Swift.Result<Array<Brew>, ErrorModel>) -> Void)) {
         ServiceManager.shared.sendRequest(request: BrewRequest(food: food), completion: completion)
     }
 }

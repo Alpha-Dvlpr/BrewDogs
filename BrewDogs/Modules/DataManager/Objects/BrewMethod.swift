@@ -7,29 +7,17 @@
 
 import Foundation
 
-struct Mash: Decodable, Encodable {
+struct Mash: Codable {
     var temp: BrewVolume
     var duration: Int?
-    
-    enum CodingKeys: String, CodingKey {
-        case temp, duration
-    }
 }
 
-struct Fermentation: Decodable, Encodable {
+struct Fermentation: Codable {
     var temp: BrewVolume
-    
-    enum CodingKeys: String, CodingKey {
-        case temp
-    }
 }
 
-struct BrewMethod: Decodable, Encodable {
-    var mash_temp: [Mash]?
+struct BrewMethod: Codable {
+    var mash_temp: [Mash]
     var fermentation: Fermentation
     var twist: String?
-    
-    enum CodingKeys: String, CodingKey {
-        case mash_temp, fermentation, twist
-    }
 }

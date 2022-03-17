@@ -13,10 +13,10 @@ class MainVM {
     var sortedBrews: [Brew] {
         switch self.sortingOrder {
         case .ascending:
-            return self.originalBrews.sorted(by: { $0.abv ?? 0 < $1.abv ?? 0 })
+            return self.originalBrews.sorted(by: { $0.abv < $1.abv })
             
         case .descending:
-            return self.originalBrews.sorted(by: { $0.abv ?? 0 > $1.abv ?? 0 })
+            return self.originalBrews.sorted(by: { $0.abv > $1.abv })
             
         case .none:
             return self.originalBrews

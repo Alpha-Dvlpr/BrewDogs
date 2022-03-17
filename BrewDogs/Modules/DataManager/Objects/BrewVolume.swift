@@ -7,11 +7,7 @@
 
 import Foundation
 
-struct BrewVolume: Decodable, Encodable {
+struct BrewVolume: Codable {
     var value: Double
     var unit: String
-    
-    enum CodingKeys: String, CodingKey {
-        case value, unit
-    }
 }

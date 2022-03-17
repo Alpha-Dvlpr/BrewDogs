@@ -7,23 +7,15 @@
 
 import Foundation
 
-struct Ingredient: Decodable, Encodable {
+struct Ingredient: Codable {
     var name: String
     var amount: BrewVolume
     var add: String?
     var attribute: String?
-    
-    enum CodingKeys: String, CodingKey {
-        case name, amount, add, attribute
-    }
 }
 
-struct BrewIngredients: Decodable, Encodable {
+struct BrewIngredients: Codable {
     var malt: [Ingredient]
     var hops: [Ingredient]
     var yeast: String
-    
-    enum CodingKeys: String, CodingKey {
-        case malt, hops, yeast
-    }
 }

@@ -23,20 +23,11 @@ class ServiceManager {
         URLSession.shared.dataTask(with: request.urlRequest()) { (data, response, error) in
             if error != nil { logError(with: ErrorKey.general.rawValue); return }
             
-            guard let data = data else { logError(with: ErrorKey.parsing.rawValue); return }
-            
-            let stringJson = String(data: data, encoding: .utf8)
-            let decoder = JSONDecoder()
-            decoder.keyDecodingStrategy = .convertFromSnakeCase
-
-            let decodedData = try? decoder.decode(T.self, from: Data(stringJson!.utf8))
-            let decodedResponse = ResponseModel.init(with: decodedData, and: request)
-            
-            if let newData = decodedResponse.data, newData != nil, decodedResponse.isSuccess {
-                completion(.success(newData.unsafelyUnwrapped))
-            } else {
-                logError(with: ErrorKey.general.rawValue)
-            }
+            guard let data = data,
+                  let responseModel = try? JSONDecoder().decode(T.self, from: data)
+            else { logError(with: ErrorKey.parsing.rawValue); return }
+      
+            completion(.success(responseModel))
         }.resume()
     }
 }

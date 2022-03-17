@@ -29,6 +29,8 @@
 		E44348F227E2813B00A48CC1 /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44348F127E2813B00A48CC1 /* ResponseModel.swift */; };
 		E44348F527E2819600A48CC1 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44348F427E2819600A48CC1 /* Services.swift */; };
 		E44348F827E282B100A48CC1 /* BrewRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44348F727E282B100A48CC1 /* BrewRequest.swift */; };
+		E44348FC27E2A20F00A48CC1 /* ImageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44348FB27E2A20F00A48CC1 /* ImageRequest.swift */; };
+		E45ABE6E27E32FBF004A4AD4 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45ABE6D27E32FBF004A4AD4 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +58,8 @@
 		E44348F127E2813B00A48CC1 /* ResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
 		E44348F427E2819600A48CC1 /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
 		E44348F727E282B100A48CC1 /* BrewRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewRequest.swift; sourceTree = "<group>"; };
+		E44348FB27E2A20F00A48CC1 /* ImageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRequest.swift; sourceTree = "<group>"; };
+		E45ABE6D27E32FBF004A4AD4 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +144,7 @@
 				E441BB9B27E223AE00C54AEE /* BaseVC.swift */,
 				E441BB9D27E2274700C54AEE /* ViewBuilder.swift */,
 				E441BBB027E2433400C54AEE /* SortingOrder.swift */,
+				E45ABE6D27E32FBF004A4AD4 /* Extensions.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -207,6 +212,7 @@
 			children = (
 				E44348F727E282B100A48CC1 /* BrewRequest.swift */,
 				E44348F427E2819600A48CC1 /* Services.swift */,
+				E44348FB27E2A20F00A48CC1 /* ImageRequest.swift */,
 			);
 			path = Serivces;
 			sourceTree = "<group>";
@@ -290,6 +296,7 @@
 				E44348EE27E280C000A48CC1 /* ErrorModel.swift in Sources */,
 				E44348E327E264AA00A48CC1 /* BrewCell.swift in Sources */,
 				E44348E727E27EBE00A48CC1 /* LogManager.swift in Sources */,
+				E45ABE6E27E32FBF004A4AD4 /* Extensions.swift in Sources */,
 				E44348F527E2819600A48CC1 /* Services.swift in Sources */,
 				E441BBA027E232FB00C54AEE /* MainVM.swift in Sources */,
 				E441BB9927E2238D00C54AEE /* MainVC.swift in Sources */,
@@ -300,6 +307,7 @@
 				E441BB8327E2209700C54AEE /* SceneDelegate.swift in Sources */,
 				E441BB9E27E2274700C54AEE /* ViewBuilder.swift in Sources */,
 				E44348F227E2813B00A48CC1 /* ResponseModel.swift in Sources */,
+				E44348FC27E2A20F00A48CC1 /* ImageRequest.swift in Sources */,
 				E441BB9C27E223AE00C54AEE /* BaseVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
