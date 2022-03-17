@@ -29,10 +29,12 @@
 		E44348F227E2813B00A48CC1 /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44348F127E2813B00A48CC1 /* ResponseModel.swift */; };
 		E44348F527E2819600A48CC1 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44348F427E2819600A48CC1 /* Services.swift */; };
 		E44348F827E282B100A48CC1 /* BrewRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44348F727E282B100A48CC1 /* BrewRequest.swift */; };
-		E44348FC27E2A20F00A48CC1 /* ImageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44348FB27E2A20F00A48CC1 /* ImageRequest.swift */; };
 		E45ABE6E27E32FBF004A4AD4 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45ABE6D27E32FBF004A4AD4 /* Extensions.swift */; };
 		E45ABE7027E331B3004A4AD4 /* SortingBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45ABE6F27E331B3004A4AD4 /* SortingBar.swift */; };
 		E45ABE7227E34062004A4AD4 /* SortingGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45ABE7127E34062004A4AD4 /* SortingGesture.swift */; };
+		E45ABE7627E34B79004A4AD4 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45ABE7527E34B79004A4AD4 /* CoreDataManager.swift */; };
+		E45ABE7A27E3504A004A4AD4 /* NetSesrvices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45ABE7927E3504A004A4AD4 /* NetSesrvices.swift */; };
+		E45ABE7C27E3505D004A4AD4 /* CDServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45ABE7B27E3505D004A4AD4 /* CDServices.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,10 +62,12 @@
 		E44348F127E2813B00A48CC1 /* ResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
 		E44348F427E2819600A48CC1 /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
 		E44348F727E282B100A48CC1 /* BrewRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewRequest.swift; sourceTree = "<group>"; };
-		E44348FB27E2A20F00A48CC1 /* ImageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRequest.swift; sourceTree = "<group>"; };
 		E45ABE6D27E32FBF004A4AD4 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		E45ABE6F27E331B3004A4AD4 /* SortingBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortingBar.swift; sourceTree = "<group>"; };
 		E45ABE7127E34062004A4AD4 /* SortingGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortingGesture.swift; sourceTree = "<group>"; };
+		E45ABE7527E34B79004A4AD4 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		E45ABE7927E3504A004A4AD4 /* NetSesrvices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetSesrvices.swift; sourceTree = "<group>"; };
+		E45ABE7B27E3505D004A4AD4 /* CDServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDServices.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +129,7 @@
 		E441BB9627E2225900C54AEE /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				E441BBA727E23EA700C54AEE /* Objects */,
 				E44348E127E2649E00A48CC1 /* CustomViews */,
 				E441BBA127E2398300C54AEE /* DataManager */,
 				E441BB9A27E223A000C54AEE /* Helpers */,
@@ -147,9 +152,7 @@
 			children = (
 				E441BB9B27E223AE00C54AEE /* BaseVC.swift */,
 				E441BB9D27E2274700C54AEE /* ViewBuilder.swift */,
-				E441BBB027E2433400C54AEE /* SortingOrder.swift */,
 				E45ABE6D27E32FBF004A4AD4 /* Extensions.swift */,
-				E45ABE7127E34062004A4AD4 /* SortingGesture.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -157,8 +160,9 @@
 		E441BBA127E2398300C54AEE /* DataManager */ = {
 			isa = PBXGroup;
 			children = (
-				E44348E427E27EA300A48CC1 /* Network */,
-				E441BBA727E23EA700C54AEE /* Objects */,
+				E44348E527E27EB100A48CC1 /* Managers */,
+				E44348EC27E280B400A48CC1 /* Models */,
+				E44348F327E2818A00A48CC1 /* Serivces */,
 			);
 			path = DataManager;
 			sourceTree = "<group>";
@@ -166,10 +170,9 @@
 		E441BBA727E23EA700C54AEE /* Objects */ = {
 			isa = PBXGroup;
 			children = (
-				E441BBA827E23EB000C54AEE /* Brew.swift */,
-				E441BBAA27E23FC200C54AEE /* BrewIngredients.swift */,
-				E441BBAC27E2407300C54AEE /* BrewVolume.swift */,
-				E441BBAE27E2409700C54AEE /* BrewMethod.swift */,
+				E45ABE7D27E3509A004A4AD4 /* Brew */,
+				E45ABE7127E34062004A4AD4 /* SortingGesture.swift */,
+				E441BBB027E2433400C54AEE /* SortingOrder.swift */,
 			);
 			path = Objects;
 			sourceTree = "<group>";
@@ -183,20 +186,10 @@
 			path = CustomViews;
 			sourceTree = "<group>";
 		};
-		E44348E427E27EA300A48CC1 /* Network */ = {
-			isa = PBXGroup;
-			children = (
-				E44348F327E2818A00A48CC1 /* Serivces */,
-				E44348EC27E280B400A48CC1 /* Models */,
-				E44348E527E27EB100A48CC1 /* Managers */,
-				E44348EA27E2806500A48CC1 /* ErrorKeys.swift */,
-			);
-			path = Network;
-			sourceTree = "<group>";
-		};
 		E44348E527E27EB100A48CC1 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				E45ABE7527E34B79004A4AD4 /* CoreDataManager.swift */,
 				E44348E627E27EBE00A48CC1 /* LogManager.swift */,
 				E44348E827E27FC200A48CC1 /* ServiceManager.swift */,
 			);
@@ -206,6 +199,7 @@
 		E44348EC27E280B400A48CC1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E44348EA27E2806500A48CC1 /* ErrorKeys.swift */,
 				E44348ED27E280C000A48CC1 /* ErrorModel.swift */,
 				E44348EF27E280EA00A48CC1 /* RequestModel.swift */,
 				E44348F127E2813B00A48CC1 /* ResponseModel.swift */,
@@ -217,10 +211,22 @@
 			isa = PBXGroup;
 			children = (
 				E44348F727E282B100A48CC1 /* BrewRequest.swift */,
+				E45ABE7B27E3505D004A4AD4 /* CDServices.swift */,
+				E45ABE7927E3504A004A4AD4 /* NetSesrvices.swift */,
 				E44348F427E2819600A48CC1 /* Services.swift */,
-				E44348FB27E2A20F00A48CC1 /* ImageRequest.swift */,
 			);
 			path = Serivces;
+			sourceTree = "<group>";
+		};
+		E45ABE7D27E3509A004A4AD4 /* Brew */ = {
+			isa = PBXGroup;
+			children = (
+				E441BBA827E23EB000C54AEE /* Brew.swift */,
+				E441BBAA27E23FC200C54AEE /* BrewIngredients.swift */,
+				E441BBAC27E2407300C54AEE /* BrewVolume.swift */,
+				E441BBAE27E2409700C54AEE /* BrewMethod.swift */,
+			);
+			path = Brew;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -297,8 +303,10 @@
 				E44348EB27E2806500A48CC1 /* ErrorKeys.swift in Sources */,
 				E441BBAD27E2407300C54AEE /* BrewVolume.swift in Sources */,
 				E44348F027E280EA00A48CC1 /* RequestModel.swift in Sources */,
+				E45ABE7A27E3504A004A4AD4 /* NetSesrvices.swift in Sources */,
 				E45ABE7227E34062004A4AD4 /* SortingGesture.swift in Sources */,
 				E441BBA927E23EB000C54AEE /* Brew.swift in Sources */,
+				E45ABE7627E34B79004A4AD4 /* CoreDataManager.swift in Sources */,
 				E45ABE7027E331B3004A4AD4 /* SortingBar.swift in Sources */,
 				E441BBB127E2433400C54AEE /* SortingOrder.swift in Sources */,
 				E44348EE27E280C000A48CC1 /* ErrorModel.swift in Sources */,
@@ -313,9 +321,9 @@
 				E441BBAF27E2409700C54AEE /* BrewMethod.swift in Sources */,
 				E44348F827E282B100A48CC1 /* BrewRequest.swift in Sources */,
 				E441BB8327E2209700C54AEE /* SceneDelegate.swift in Sources */,
+				E45ABE7C27E3505D004A4AD4 /* CDServices.swift in Sources */,
 				E441BB9E27E2274700C54AEE /* ViewBuilder.swift in Sources */,
 				E44348F227E2813B00A48CC1 /* ResponseModel.swift in Sources */,
-				E44348FC27E2A20F00A48CC1 /* ImageRequest.swift in Sources */,
 				E441BB9C27E223AE00C54AEE /* BaseVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

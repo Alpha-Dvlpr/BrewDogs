@@ -29,8 +29,35 @@ class MainVM {
     
     func fetchBrews(for food: String) {
         self.originalBrews.removeAll()
-        
-        Services.getBrews(for: food) { [ weak self ] result in
+        self.coreDataSearch(for: food)
+    }
+    
+    func clearSearch() {
+        self.originalBrews.removeAll()
+        self.finish(clear: true)
+    }
+    
+    private func coreDataSearch(for food: String) {
+        CDServices.getBrews(for: food) { [ weak self ] result in
+            guard let wSelf = self else { return }
+            
+            switch result {
+            case .success(let brews):
+                if brews.isEmpty {
+                    wSelf.networkSearch(for: food)
+                } else {
+                    wSelf.originalBrews = brews
+                    wSelf.finish()
+                }
+                
+            case .failure:
+                wSelf.networkSearch(for: food)
+            }
+        }
+    }
+    
+    private func networkSearch(for food: String) {
+        NetServices.getBrews(for: food) { [ weak self ] result in
             guard let wSelf = self else { return }
             
             switch result {
@@ -38,15 +65,12 @@ class MainVM {
                 wSelf.originalBrews = brews
                 wSelf.finish()
                 
+                CDServices.saveBrews(for: food, brews: brews)
+                
             case .failure(let error):
                 wSelf.finish(error: error.localizedDescription)
             }
         }
-    }
-    
-    func clearSearch() {
-        self.originalBrews.removeAll()
-        self.finish(clear: true)
     }
     
     private func finish(clear: Bool = false, error: String? = nil) { self.observer?(clear ? false : self.sortedBrews.isEmpty, error) }
