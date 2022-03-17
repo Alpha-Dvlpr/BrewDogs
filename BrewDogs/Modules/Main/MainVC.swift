@@ -9,14 +9,16 @@ import UIKit
 
 class MainVCViews {
     
-    var searchBar: UISearchBar = {
+    private var sortingBar = SortingBar.create()
+    
+    private var searchBar: UISearchBar = {
         let view = UISearchBar()
         view.searchTextField.clearButtonMode = .whileEditing
         
         return view
     }()
     
-    var errorLabel: UILabel = {
+    private var errorLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
         label.textColor = .systemRed
@@ -26,17 +28,24 @@ class MainVCViews {
         return label
     }()
     
-    var table = UITableView()
+    private var table = UITableView()
     
     private var closeCallback: (() -> Void)?
     
     init(inside view: UIView) {
+        view.addSubview(self.sortingBar)
         view.addSubview(self.searchBar)
         view.addSubview(self.errorLabel)
         view.addSubview(self.table)
         
-        self.searchBar
+        self.sortingBar
             .alignParentTopSafeArea()
+            .alignParentLeft(constant: 8)
+            .alignParentRight(constant: 8)
+            .height(constant: 64)
+        
+        self.searchBar
+            .align(belowTo: self.sortingBar, constant: 8)
             .alignParentLeft()
             .alignParentRight()
         
@@ -84,6 +93,15 @@ class MainVCViews {
         }
     }
     
+    func setSorting(callback: @escaping ((SortingOrder) -> Void)) { self.sortingBar.set(callback: callback) }
+    
+    func set(actual: SortingOrder?) { self.sortingBar.set(actual: actual) }
+    
+    func reload(actual: SortingOrder?) {
+        self.table.reloadData()
+        self.sortingBar.set(actual: actual)
+    }
+    
     @objc private func closeButtonAction(_ sender: UIBarButtonItem) { self.closeCallback?() }
 }
 
@@ -102,8 +120,16 @@ class MainVC: BaseVC {
     }
     
     func setupViews() {
-        self.views?.setField(delegate: self) { self.view.endEditing(true) }
+        self.views?.setField(delegate: self) { [ weak self ] in
+            guard let wSelf = self else { return }
+            wSelf.view.endEditing(true)
+        }
         self.views?.setTable(delegate: self, dataSource: self)
+        self.views?.setSorting { [ weak self ] newSorting in
+            guard let wSelf = self else { return }
+            wSelf.viewModel?.sortingOrder = newSorting
+        }
+        self.views?.set(actual: self.viewModel?.sortingOrder)
         
         self.viewModel?.observer = { [ weak self ] (empty, error) in
             DispatchQueue.main.async {
@@ -114,7 +140,7 @@ class MainVC: BaseVC {
                     wSelf.views?.setError(string: error)
                 } else {
                     if empty { wSelf.views?.setError(string: "No se han encontrado cervezas para la comida introducida") }
-                    wSelf.views?.table.reloadData()
+                    wSelf.views?.reload(actual: wSelf.viewModel?.sortingOrder)
                 }
             }
         }

@@ -22,7 +22,7 @@ class MainVM {
             return self.originalBrews
         }
     }
-    private var sortingOrder: SortingOrder = .ascending
+    var sortingOrder: SortingOrder = .ascending { didSet { self.finish() } }
     private var originalBrews = [Brew]()
     
     init() { }

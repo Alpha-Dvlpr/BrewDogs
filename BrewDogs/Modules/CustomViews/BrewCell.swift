@@ -9,7 +9,7 @@ import UIKit
 
 class BrewCellViews {
     
-    var nameLabel: UILabel = {
+    private var nameLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 1
         label.font = .boldSystemFont(ofSize: 22)
@@ -18,7 +18,7 @@ class BrewCellViews {
         return label
     }()
     
-    var taglineLabel: UILabel = {
+    private var taglineLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 2
         label.font = .boldSystemFont(ofSize: 18)
@@ -27,7 +27,7 @@ class BrewCellViews {
         return label
     }()
     
-    var descriptionLabel: UILabel = {
+    private var descriptionLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 8
         label.font = .systemFont(ofSize: 18)
@@ -36,7 +36,7 @@ class BrewCellViews {
         return label
     }()
     
-    var image: UIImageView = {
+    private var image: UIImageView = {
         let view = UIImageView()
         view.contentMode = .scaleAspectFit
         view.layer.borderWidth = 2
@@ -46,7 +46,7 @@ class BrewCellViews {
         return view
     }()
     
-    var abvLabel: UILabel = {
+    private var abvLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
         label.numberOfLines = 1
