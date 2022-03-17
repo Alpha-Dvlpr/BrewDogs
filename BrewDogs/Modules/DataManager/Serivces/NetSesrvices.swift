@@ -10,8 +10,8 @@ import Foundation
 class NetServices: Service {
     
     static func getBrews(for food: String, completion: @escaping ((Swift.Result<Array<Brew>, ErrorModel>) -> Void)) {
-        ServiceManager.shared.sendRequest(request: BrewRequest(food: food), completion: completion)
+        ServiceManager.shared.sendRequest(request: APIBrewRequest(food: food), completion: completion)
     }
     
-    static func saveBrews(for food: String, brews: [Brew]) { }
+    static func saveBrews(for food: String, brews: [Brew], completion: @escaping ((Result<String, ErrorModel>) -> Void)) { }
 }

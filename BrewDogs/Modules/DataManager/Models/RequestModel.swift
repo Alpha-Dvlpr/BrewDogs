@@ -22,6 +22,7 @@ class RequestModel: NSObject {
     var method: RequestHTTPMethod { return body.isEmpty ? .get : .post }
     var body: [String: Any?] { return [:] }
     var isLoggingEnabled: (Bool, Bool) { return (true, true) }
+    var data: Decodable? { return nil }
 }
 
 // MARK: - Public Functions

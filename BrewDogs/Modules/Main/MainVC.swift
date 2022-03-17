@@ -140,8 +140,9 @@ class MainVC: BaseVC {
                     wSelf.views?.setError(string: error)
                 } else {
                     if empty { wSelf.views?.setError(string: "No se han encontrado cervezas para la comida introducida") }
-                    wSelf.views?.reload(actual: wSelf.viewModel?.sortingOrder)
                 }
+                
+                wSelf.views?.reload(actual: wSelf.viewModel?.sortingOrder)
             }
         }
     }

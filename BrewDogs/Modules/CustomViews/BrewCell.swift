@@ -98,14 +98,14 @@ class BrewCellViews {
     func setup(with brew: Brew) {
         self.nameLabel.text = brew.name
         self.taglineLabel.text = brew.tagline
-        self.descriptionLabel.text = brew.description
+        self.descriptionLabel.text = brew.brewDescription
         self.abvLabel.text = "\(brew.abv)"
         self.abvLabel.layer.backgroundColor = self.getColor(for: brew.abv).cgColor
         
-        if let url = URL(string: brew.image_url) {
+        if let stringUrl = brew.imageURL, let url = URL(string: stringUrl) {
             self.image.load(url: url)
         } else {
-            self.image.image = UIImage(systemName: "cross.fill")
+            self.image.image = UIImage(systemName: "icloud.slash")
         }
     }
     

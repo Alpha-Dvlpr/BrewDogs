@@ -65,7 +65,7 @@ class MainVM {
                 wSelf.originalBrews = brews
                 wSelf.finish()
                 
-                CDServices.saveBrews(for: food, brews: brews)
+                CDServices.saveBrews(for: food, brews: brews) { _ in }
                 
             case .failure(let error):
                 wSelf.finish(error: error.localizedDescription)
